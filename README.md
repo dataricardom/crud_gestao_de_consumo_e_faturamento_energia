@@ -2,6 +2,20 @@
 
 ## Ricardo Marques
 
+
+### Conexão com o Banco de Dados
+**Configuração do SQLAlchemy com PostgreSQL**
+
+No arquivo database.py, foi configurada a conexão com o banco de dados PostgreSQL utilizando o SQLAlchemy
+
+
+
+### Modelos de Dados e Relacionamentos no SQLAlchemy
+
+**Arquivo models.py**
+
+No arquivo models.py, foram definidas as classes que representam as tabelas no banco de dados utilizando o SQLAlchemy. Essas classes seguem a estrutura do banco de dados e incluem os relacionamentos entre elas.
+
 1. Cliente e Fatura (1:N)
 - Descrição: Um cliente pode ter várias faturas, mas uma fatura só pode ter um cliente.
 - Relação: 1:N (um cliente para muitas faturas).
