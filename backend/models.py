@@ -59,7 +59,7 @@ class FaturaModel(Base):
     valor = Column(Float)
     status_pagamento = Column(String)
     data_emissao = Column(DateTime(timezone=True), default=func.now())
-    data_vencimento = Column(DateTime(timezone=True), default=func.now())
+    data_vencimento = Column(DateTime(timezone=True), default=func.now() + func.interval('15 day'))
 
     # Relacionamento com Cliente (muitos para um)
     cliente = relationship("ClienteModel", back_populates="faturas")
