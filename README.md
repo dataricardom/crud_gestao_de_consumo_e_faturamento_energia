@@ -29,7 +29,7 @@ No arquivo models.py, foram definidas as classes que representam as tabelas no b
 - Relação: 1:N (um medidor para muitas leituras).
 - Explicação: A chave estrangeira medidor_id na tabela LeituraModel indica que cada leitura está associada a um único medidor, mas um medidor pode ter várias leituras.
 
-# Estrutura dos Schemas Pydantic
+### Estrutura dos Schemas Pydantic
 
 o arquivo schemas.py:
 
