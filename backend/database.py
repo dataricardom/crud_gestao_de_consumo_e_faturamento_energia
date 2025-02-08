@@ -1,26 +1,18 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-import os
-from dotenv import load_dotenv
+from sqlalchemy.orm import sessionmaker
 
-load_dotenv()
-
-db_user = os.getenv('DB_USER')
-db_password = os.getenv('DB_PASSWORD')
-db_name = os.getenv('DB_NAME')
-
-POSTGRES_DATABASE_URL = f"postgresql://{db_user}:{db_password}@postgres/{db_name}"
-
+POSTGRES_DATABASE_URL = "postgresql://user:password@postgres/mydatabase"
 engine = create_engine(POSTGRES_DATABASE_URL)
 
-SessionLocal = sessionmaker (autocommit= True, autoflush= False, bind=engine)
+SessionLocal = sessionmaker(autocommit=False, autoflush= False, bind=engine)
 
-Base = declarative_base()
+Base = declarative_base() #ORM
+
 
 def get_db():
     db = SessionLocal()
     try:
-        yield db
+        yield db #yield é tipo um return mas não morre a função, pode chamar varias vezes.
     finally:
         db.close()

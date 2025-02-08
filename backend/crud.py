@@ -97,14 +97,22 @@ def get_leitura(db:Session, leitura_id: int):
     
     return db.query(LeituraModel).filter(LeituraModel.id_leitura == leitura_id).first()
 
-def create_leitura(db:Session, leitura_id: int):
+def create_leitura(db: Session, leitura: MedidorCreate):
+    
+    db_leitura = MedidorModel(**leitura.model_dump())
+    db.add(db_leitura)
+    db.commit()
+    db.refresh(db_leitura)
+    return db_leitura
+
+def delete_leitura(db:Session, leitura_id: int):
     
     db_leitura = db.query(LeituraModel).filter(LeituraModel.id_leitura == leitura_id)
     db.delete(db_leitura)
     db.commit()
     return db_leitura
 
-def update_medidor(db:Session, leitura_id: int, leitura: LeituraUpdate):
+def update_leitura(db:Session, leitura_id: int, leitura: LeituraUpdate):
     
     db_leitura = db.query(LeituraModel).filter(LeituraModel.id_leitura == leitura_id).first()
     if db_leitura is None:
@@ -130,7 +138,16 @@ def get_fatura(db:Session, fatura_id: int):
     
     return db.query(FaturaModel).filter(FaturaModel.id_fatura == fatura_id).first()
 
-def create_fatura(db:Session, fatura_id: int):
+
+def create_fatura(db: Session, fatura: MedidorCreate):
+    
+    db_fatura = MedidorModel(**fatura.model_dump())
+    db.add(db_fatura)
+    db.commit()
+    db.refresh(db_fatura)
+    return db_fatura
+
+def delete_fatura(db:Session, fatura_id: int):
     
     db_fatura = db.query(FaturaModel).filter(FaturaModel.id_fatura == fatura_id)
     db.delete(db_fatura)
@@ -150,3 +167,6 @@ def update_fatura(db:Session, fatura_id: int, fatura: FaturaUpdate):
     db.commit()
     db.refresh(db_fatura)
     return db_fatura
+
+
+

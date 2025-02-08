@@ -29,7 +29,7 @@ class ClienteUpdate(BaseModel):
 #Schemas Tabela Medidor
 
 class MedidorBase(BaseModel):
-    client_id: int
+    cliente_id: int
     numero_medidor: int
     tipo:str
 
@@ -44,7 +44,6 @@ class MedidorResponse(MedidorBase):
         from_attributes= True
 
 class MedidorUpdate (BaseModel):
-    client_id: int
     numero_medidor: Optional [int] = None
     tipo:Optional[str] = None
 
@@ -59,6 +58,7 @@ class LeituraCreate(LeituraBase):
     pass 
 
 class LeituraResponse(LeituraBase):
+    cliente_id: int
     id_leitura:int
     data_leitura:datetime
 
