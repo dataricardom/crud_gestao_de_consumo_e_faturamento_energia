@@ -122,7 +122,7 @@ def read_one_leitura_route(leitura_id: int, db: Session = Depends(get_db)):
 
 @routers.delete("/leitura/{leitura_id}", response_model=LeituraResponse)
 def delete_leitura_route(leitura_id: int, db: Session = Depends(get_db)):
-    db_leitura = delete_leitura(db=db, leitura_id=leitura_id)
+    db_leitura = delete_leitura(leitura_id=leitura_id, db=db)
     if db_leitura is None:
         raise HTTPException(status_code=404, detail="Leitura não encontrada")
     return db_leitura

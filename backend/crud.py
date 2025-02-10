@@ -37,7 +37,7 @@ def update_cliente(db:Session, cliente_id: int, cliente: ClienteUpdate):
     if db_cliente is None:
         return None
     if cliente.endereco is not None:
-        db_cliente.nome = cliente.endereco
+        db_cliente.endereco = cliente.endereco
     if cliente.telefone is not None:
         db_cliente.telefone = cliente.telefone
     if cliente.email_cliente is not None:
@@ -107,7 +107,7 @@ def create_leitura(db: Session, leitura: LeituraCreate):
 
 def delete_leitura(db:Session, leitura_id: int):
     
-    db_leitura = db.query(LeituraModel).filter(LeituraModel.id_leitura == leitura_id)
+    db_leitura = db.query(LeituraModel).filter(LeituraModel.id_leitura == leitura_id).first()
     db.delete(db_leitura)
     db.commit()
     return db_leitura

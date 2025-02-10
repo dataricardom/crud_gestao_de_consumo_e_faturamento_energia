@@ -13,6 +13,9 @@ pydantic = "^2.10.6"
 fastapi = "^0.115.8"
 psycopg2 = "^2.9.10"
 psycopg2-binary = "^2.9.10"
+streamlit = "^1.42.0"
+pandas = "^2.2.3"
+requests = "^2.32.3"
 
 
 [build-system]
