@@ -2,6 +2,7 @@
 
 ## Ricardo Marques
 
+# Backend
 
 ### Conexão com o Banco de Dados
 **Configuração do SQLAlchemy com PostgreSQL**
@@ -220,3 +221,9 @@ As tabelas do banco de dados são criadas utilizando o comando create_all().
 As rotas (definidas no arquivo routers.py) são adicionadas ao aplicativo usando app.include_router(routers).
 Ao executar a aplicação, a FastAPI disponibiliza os endpoints definidos no arquivo routers.py, permitindo que os usuários interajam com os dados (clientes, medidores, leituras e faturas) via API.
 Isso configura a aplicação e o banco de dados de forma que você pode fazer chamadas HTTP para realizar operações como cadastrar, consultar, atualizar e excluir dados dos recursos da aplicação.
+
+
+
+<p align="center">
+  <img src="pic/KPUUDATA.png" alt="logo" width="300"/>
+</p>
