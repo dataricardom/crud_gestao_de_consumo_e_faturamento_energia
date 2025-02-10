@@ -154,7 +154,7 @@ def read_one_fatura_route(fatura_id: int, db: Session = Depends(get_db)):
 
 @routers.delete("/fatura/{fatura_id}", response_model=FaturaResponse)
 def delete_fatura_route(fatura_id: int, db: Session = Depends(get_db)):
-    db_fatura = delete_fatura(db=db, fatura_id=fatura_id)
+    db_fatura = delete_fatura(fatura_id=fatura_id, db=db)
     if db_fatura is None:
         raise HTTPException(status_code=404, detail="Fatura não encontrada")
     return db_fatura

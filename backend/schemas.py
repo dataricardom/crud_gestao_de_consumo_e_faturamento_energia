@@ -37,7 +37,7 @@ class MedidorCreate(MedidorBase):
     pass
 
 class MedidorResponse(MedidorBase):
-    medidor_id: int
+    id_medidor: int
     data_instalacao:datetime
     
     class Config:
@@ -58,7 +58,6 @@ class LeituraCreate(LeituraBase):
     pass 
 
 class LeituraResponse(LeituraBase):
-    cliente_id: int
     id_leitura:int
     data_leitura:datetime
 
@@ -72,6 +71,7 @@ class LeituraUpdate(BaseModel):
 # Schemas Tabela Fatura
 
 class FaturaBase(BaseModel):
+    cliente_id: int
     valor: PositiveFloat
     status_pagamento: str
 class FaturaCreate(FaturaBase):

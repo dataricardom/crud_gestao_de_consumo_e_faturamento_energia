@@ -53,9 +53,9 @@ def get_medidores(db:Session):
     
     return db.query(MedidorModel).all()
 
-def get_medidor(db:Session, cliente_id: int):
+def get_medidor(db:Session, medidor_id: int):
    
-    return db.query(MedidorModel).filter(MedidorModel.id_medidor == cliente_id).first()
+    return db.query(MedidorModel).filter(MedidorModel.id_medidor == medidor_id).first()
 
 def create_medidor(db: Session, medidor: MedidorCreate):
     
@@ -97,9 +97,9 @@ def get_leitura(db:Session, leitura_id: int):
     
     return db.query(LeituraModel).filter(LeituraModel.id_leitura == leitura_id).first()
 
-def create_leitura(db: Session, leitura: MedidorCreate):
+def create_leitura(db: Session, leitura: LeituraCreate):
     
-    db_leitura = MedidorModel(**leitura.model_dump())
+    db_leitura = LeituraModel(**leitura.model_dump())
     db.add(db_leitura)
     db.commit()
     db.refresh(db_leitura)
@@ -139,9 +139,9 @@ def get_fatura(db:Session, fatura_id: int):
     return db.query(FaturaModel).filter(FaturaModel.id_fatura == fatura_id).first()
 
 
-def create_fatura(db: Session, fatura: MedidorCreate):
+def create_fatura(db: Session, fatura: FaturaCreate):
     
-    db_fatura = MedidorModel(**fatura.model_dump())
+    db_fatura = FaturaModel(**fatura.model_dump())
     db.add(db_fatura)
     db.commit()
     db.refresh(db_fatura)
@@ -149,7 +149,7 @@ def create_fatura(db: Session, fatura: MedidorCreate):
 
 def delete_fatura(db:Session, fatura_id: int):
     
-    db_fatura = db.query(FaturaModel).filter(FaturaModel.id_fatura == fatura_id)
+    db_fatura = db.query(FaturaModel).filter(FaturaModel.id_fatura == fatura_id).first()
     db.delete(db_fatura)
     db.commit()
     return db_fatura

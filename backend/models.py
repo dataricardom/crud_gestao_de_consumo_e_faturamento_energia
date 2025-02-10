@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, text
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 from database import Base
@@ -59,7 +59,9 @@ class FaturaModel(Base):
     valor = Column(Float)
     status_pagamento = Column(String)
     data_emissao = Column(DateTime(timezone=True), default=func.now())
-    data_vencimento = Column(DateTime(timezone=True), default=func.now() + func.interval('15 day'))
+    data_vencimento = Column(DateTime(timezone=True), default=func.now())
+
+    
 
     # Relacionamento com Cliente (muitos para um)
     cliente = relationship("ClienteModel", back_populates="faturas")
