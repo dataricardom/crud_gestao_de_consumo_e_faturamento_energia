@@ -222,7 +222,11 @@ As rotas (definidas no arquivo routers.py) são adicionadas ao aplicativo usando
 Ao executar a aplicação, a FastAPI disponibiliza os endpoints definidos no arquivo routers.py, permitindo que os usuários interajam com os dados (clientes, medidores, leituras e faturas) via API.
 Isso configura a aplicação e o banco de dados de forma que você pode fazer chamadas HTTP para realizar operações como cadastrar, consultar, atualizar e excluir dados dos recursos da aplicação.
 
+# Frontend
 
+<p align="center">
+  <img src="pic/frontend.png" alt="logo" width="1000"/>
+</p>
 
 <p align="center">
   <img src="pic/KPUUDATA.png" alt="logo" width="300"/>
